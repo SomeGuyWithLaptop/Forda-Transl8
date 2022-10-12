@@ -1,6 +1,6 @@
 import streamlit as st 
 from googletrans import Translator, LANGUAGES
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from vaderSentiment import SentimentIntensityAnalyzer
 import os
 
 def main(): 
