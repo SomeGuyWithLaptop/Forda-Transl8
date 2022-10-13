@@ -8,21 +8,27 @@ def main():
     st.caption("A Netspeak Translator with Sentiment Analysis :)")
     activities=["Translator", "Sentimental Analysis"]
     choice=st.sidebar.selectbox("Select Activities", activities)
+    list_text = list(LANGUAGES.values())
 
     #Translator Part
     if choice == "Translator": 
-        list_text = list(LANGUAGES.values())
         st.write("\n")
         st.write("\n")
         st.write("Translator")
         from_text = st.text_input("Enter Source Text: ")
-        from_code = st.selectbox("Enter the Language: ",list_text)
+        from_code = st.selectbox("Enter the Language: ", list_text)
        
         if st.button("Translate"):
             translator=Translator() 
-            a=(translator.translate(from_text, dest=from_code).text)
-            st.success(a)
-            
+            try:
+                a=(translator.translate(from_text, dest=list_text).text)
+                st.success(a)
+            except Exception as e: 
+                a1=os.system("ping www.google.com")
+                if a1==1: 
+                    st.write("Please Check Your Internet Connection.")
+                else: 
+                    st.write("Language Input not Recognized.")
     
     #Sentimental Analysis Part
     elif choice == "Sentimental Analysis": 
@@ -62,4 +68,3 @@ def main():
 
 if __name__=="__main__": 
     main()
-
