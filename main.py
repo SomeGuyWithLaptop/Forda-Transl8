@@ -1,5 +1,5 @@
 import streamlit as st 
-from google_trans_new import google_translator, LANGUAGES
+from googletrans import Translator, LANGUAGES
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import os
 
@@ -19,11 +19,17 @@ def main():
         from_text = st.text_input("Enter Source Text: ")
         from_code = st.selectbox("Enter the Language: ", list_text)
        
-        if st.button("Translate"): 
-            translator = google_translator() 
-            translate_text = translator.translate('text', from_text, from_code)
-            st.success(translate_text)
-            
+        if st.button("Translate"):
+            translator=Translator() 
+            try:
+                a=(translator.translate(from_text, dest=from_code).text)
+                st.success(a)
+            except Exception as e: 
+                a1=os.system("ping www.google.com") 
+                if a1==1: 
+                    st.write("Please Check Your Internet Connection.")
+                else: 
+                    st.write("Language Input not Recognized.")
     
     #Sentimental Analysis Part
     elif choice == "Sentimental Analysis": 
