@@ -20,9 +20,9 @@ def main():
         from_code = st.selectbox("Enter the Language: ", list_text)
        
         if st.button("Translate"): 
-        translator = google_translator() 
-        translate_text=(translator.translate(from_text, dest=from_code).text)
-        st.success(translate_text)
+            translator = google_translator() 
+            translate_text=(translator.translate(from_text, dest=from_code).text)
+            st.success(translate_text)
             
     
     #Sentimental Analysis Part
