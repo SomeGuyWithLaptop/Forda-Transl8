@@ -1,3 +1,4 @@
 streamlit 
 vaderSentiment 
 google_trans_new
+googletrans
