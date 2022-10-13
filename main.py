@@ -19,9 +19,9 @@ def main():
         from_text = st.text_input("Enter Source Text: ")
         from_code = st.selectbox("Enter the Language: ", list_text)
        
-        st.button("Translate")
+        if st.button("Translate"): 
         translator = google_translator() 
-        translate_text=(translator.translate(from_text, from_code).text)
+        translate_text=(translator.translate(from_text, dest=from_code).text)
         st.success(translate_text)
             
     
