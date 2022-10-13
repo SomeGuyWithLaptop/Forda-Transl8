@@ -1,5 +1,5 @@
 import streamlit as st 
-from google_trans_new import goole_translator, LANGUAGES
+from google_trans_new import google_translator, LANGUAGES
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import os
 
