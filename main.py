@@ -4,7 +4,6 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import os
 
 
-
 def main(): 
     st.title("Forda Transl8 Yarn")
     st.caption("A Netspeak Translator with Sentiment Analysis :)")
@@ -22,10 +21,15 @@ def main():
        
         if st.button("Translate"):
             translator=Translator() 
-            a=(translator.translate(from_text, dest=from_code).text)
-            st.success(a)
-            
-              
+            try:
+                a=(translator.translate(from_text, dest=from_code).text)
+                st.success(a)
+            except AttributeError: 
+                a1=os.system("ping www.google.com") 
+                if a1==1: 
+                    st.write("Please Check Your Internet Connection.")
+                else: 
+                    st.write("Language Input not Recognized.")
     
     #Sentimental Analysis Part
     elif choice == "Sentimental Analysis": 
