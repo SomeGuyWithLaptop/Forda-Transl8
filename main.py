@@ -3,15 +3,17 @@ from googletrans import Translator, LANGUAGES
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import os
 
+
+
 def main(): 
     st.title("Forda Transl8 Yarn")
     st.caption("A Netspeak Translator with Sentiment Analysis :)")
     activities=["Translator", "Sentimental Analysis"]
     choice=st.sidebar.selectbox("Select Activities", activities)
-    list_text = list(LANGUAGES.values())
 
     #Translator Part
     if choice == "Translator": 
+        list_text = list(LANGUAGES.values())
         st.write("\n")
         st.write("\n")
         st.write("Translator")
@@ -21,10 +23,10 @@ def main():
         if st.button("Translate"):
             translator=Translator() 
             try:
-                a=(translator.translate(from_text, dest=from_code).list)
+                a=(translator.translate(from_text, dest=from_code).text)
                 st.success(a)
             except Exception as e: 
-                a1=os.system("ping www.google.com")
+                a1=os.system("ping www.google.com") 
                 if a1==1: 
                     st.write("Please Check Your Internet Connection.")
                 else: 
