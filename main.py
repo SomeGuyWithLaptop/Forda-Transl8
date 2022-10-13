@@ -21,7 +21,7 @@ def main():
         if st.button("Translate"):
             translator=Translator() 
             try:
-                a=(translator.translate(from_text, dest=list_text).text)
+                a=(translator.translate(from_text, dest=from_code).list_text)
                 st.success(a)
             except Exception as e: 
                 a1=os.system("ping www.google.com")
