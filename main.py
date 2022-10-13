@@ -1,5 +1,5 @@
 import streamlit as st 
-from google_trans_new import google_translator, LANGUAGES
+from googletrans import Translator, LANGUAGES
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import os
 
@@ -20,7 +20,7 @@ def main():
         from_code = st.selectbox("Enter the Language: ", list_text)
        
         if st.button("Translate"):
-            translator=google_translator() 
+            translator=Translator() 
             try:
                 a=(translator.translate(from_text, dest=from_code).text)
                 st.success(a)
