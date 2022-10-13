@@ -11,14 +11,17 @@ def main():
 
     #Translator Part
     if choice == "Translator": 
+        list_text = list(LANGUAGES.values())
         st.write("\n")
         st.write("\n")
         st.write("Translator")
         from_text = st.text_input("Enter Source Text: ")
-        from_code = st.text_input("Enter the Language: ")
+        from_code = st.selectbox("Enter the Language: ",list_text)
+       
         if st.button("Translate"):
             translator=Translator() 
             try:
+
                 a=(translator.translate(from_text, dest=from_code).text)
                 st.success(a)
             except Exception as e: 
@@ -66,3 +69,4 @@ def main():
 
 if __name__=="__main__": 
     main()
+
