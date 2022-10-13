@@ -21,7 +21,7 @@ def main():
        
         if st.button("Translate"): 
             translator = google_translator() 
-            translate_text = translator.translate('text', src=from_text, dest=from_code)
+            translate_text = translator.translate('text', from_text, from_code)
             st.success(translate_text)
             
     
