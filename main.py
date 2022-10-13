@@ -21,7 +21,7 @@ def main():
         if st.button("Translate"):
             translator=Translator() 
             try:
-                a=(translator.translate(from_text, dest=from_code).list_text)
+                a=(translator.translate(from_text, dest=from_code).list)
                 st.success(a)
             except Exception as e: 
                 a1=os.system("ping www.google.com")
@@ -51,7 +51,7 @@ def main():
 
                 st.write("Sentence gives a: " )
 
-                #Dito yung part kung good or bad yung statement
+                #Shows if sentiment is good, bad, or neutral
                 if sentiment_dict['compound'] >= 0.05 : 
                     st.success("Positive Statement")
                 elif sentiment_dict['compound'] <= -0.05: 
