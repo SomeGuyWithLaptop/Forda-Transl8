@@ -14,8 +14,7 @@ def main():
     if choice == "Translator": 
         list_text = list(LANGUAGES.values())
         st.write("\n")
-        st.write("\n")
-        st.write("Translator")
+        st.subheader("Translator")
         from_text = st.text_input("Enter Source Text: ")
         from_code = st.selectbox("Enter the Language: ", list_text)
        
@@ -35,7 +34,8 @@ def main():
     elif choice == "Sentimental Analysis": 
         st.write("\n")
         st.write("\n")
-        st.write("Sentiment Analyzer")
+        st.subheader("Sentiment Analyzer")
+
         from_sent = st.text_input("Enter a Sentence: ")
         if st.button("Check Sentiment"): 
             try:
@@ -55,10 +55,13 @@ def main():
                 #Shows if sentiment is good, bad, or neutral
                 if sentiment_dict['compound'] >= 0.05 : 
                     st.success("Positive Statement")
+                    st.info("A **''sentiment''** is an attitude or emotion towards something, and can be determined if the statement has a positive meaning or not", icon="ℹ️")
                 elif sentiment_dict['compound'] <= -0.05: 
                     st.success("Negative Statement")
+                    st.info("A **''sentiment''** is an attitude or emotion towards something, and can be determined if the statement has a positive meaning or not", icon="ℹ️")
                 else: 
                     st.success("Neutral Statement")
+                    st.info("A **''sentiment''** is an attitude or emotion towards something, and can be determined if the statement has a positive meaning or not", icon="ℹ️")
 
             except Exception as e: 
                 obj1 = os.system("ping www.google.com")
