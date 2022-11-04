@@ -1,6 +1,7 @@
 import streamlit as st 
 from googletrans import Translator, LANGUAGES
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer 
+import matplotlib.pyplot 
 import os
 
 
@@ -41,6 +42,14 @@ def main():
             try:
                 obj = SentimentIntensityAnalyzer()
                 sentiment_dict = obj.polarity_scores(from_sent)
+
+                labels = ['Negative', 'Neutral', 'Positive']
+                sizes  = [sentiment_dict['neg'], sentiment_dict['neu'], sentiment_dict['pos']]
+                explode = (0.1, 0, 0.1)
+                fig, ax = plt.subplots()
+                ax.pie(sizes, labels=labels, explode=explode, autopct='%1.1f%%', shadow=True, startangle=90) # autopct='%1.1f%%' gives you percentages printed in every slice.
+                ax.axis('equal')  # Ensures that pie is drawn as a circle.
+                st.pyplot(fig)
 
                 st.write(sentiment_dict) 
                 st.write("Sentence is rated as ", sentiment_dict['neg']*100, "% Negative")
