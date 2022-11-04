@@ -1,7 +1,7 @@
 import streamlit as st 
 from googletrans import Translator, LANGUAGES
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer 
-import matplotlib.pyplot 
+import matplotlib.pyplot as plt
 import os
 
 
