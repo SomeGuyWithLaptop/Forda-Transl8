@@ -1,3 +1,3 @@
 # Forda-Transl8 (Translator with Sentiment Analyis) 
 
-Another version of it is in the works
+Google Translate with VADER Sentiment Analysis (deployed in streamlit) 
