@@ -7,7 +7,7 @@ import os
 
 def main(): 
     st.title("Forda Transl8 Yarn")
-    st.caption("A Netspeak Translator with Sentiment Analysis :)")
+    st.caption("A Translator with Sentiment Analysis :)")
     activities=["Translator", "Sentimental Analysis"]
     choice=st.sidebar.selectbox("Select Activities", activities)
 
