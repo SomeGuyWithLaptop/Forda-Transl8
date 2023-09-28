@@ -6,8 +6,8 @@ import os
 
 
 def main(): 
-    st.title("Translate")
-    st.caption("A Translator with Sentiment Analysis :)")
+    st.title("Translate App")
+    st.caption("Google Translate with Sentiment Analysis")
     activities=["Translator", "Sentimental Analysis"]
     choice=st.sidebar.selectbox("Select Activities", activities)
 
